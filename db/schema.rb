@@ -20,10 +20,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_19_105927) do
     t.integer "age"
     t.boolean "driving_licence"
     t.string "position"
-    t.bigint "user_id"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_data_on_user_id"
+    t.index ["users_id"], name: "index_user_data_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
