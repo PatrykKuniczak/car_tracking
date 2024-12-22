@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   root to: "home#index"
   get "up" => "rails/health#show", as: :rails_health_check
-  get "user_data_form" => "user_data#new"
+  get "user_data_form" => "user_data#index"
   post "user_data_form" => "user_data#create"
+  patch "user_data_form" => "user_data#update"
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

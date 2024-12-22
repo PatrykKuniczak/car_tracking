@@ -1,4 +1,4 @@
-<%= form_with model: @user_data, url: user_data_form_path do |f| %>
+<%= form_with model: @user_data, url: user_data_form_path, method: @user_data.new_record? ? :post : :patch do |f| %>
   <% if @user_data.errors.any? %>
     <div class="alert alert-danger">
       <h4><%= pluralize(@user_data.errors.count, "error") %> prohibited this record from being saved:</h4>
@@ -12,27 +12,27 @@
 
   <div class="form-group">
     <%= f.label :name, "Name" %>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control", value: @user_data.name.presence || "" %>
   </div>
 
   <div class="form-group">
     <%= f.label :surname, "Surname" %>
-    <%= f.text_field :surname, class: "form-control" %>
+    <%= f.text_field :surname, class: "form-control", value: @user_data.surname.presence || "" %>
   </div>
 
   <div class="form-group">
     <%= f.label :age, "Age" %>
-    <%= f.number_field :age, class: "form-control" %>
+    <%= f.number_field :age, class: "form-control", value: @user_data.age.presence || "" %>
   </div>
 
   <div class="form-group">
     <%= f.label :driving_licence, "Driving Licence" %>
-    <%= f.select :driving_licence, options_for_select(["Yes", "No"]), {}, class: "form-control" %>
+    <%= f.select :driving_licence, options_for_select(["Yes", "No"], @user_data.driving_licence), {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :position, "Position" %>
-    <%= f.text_field :position, class: "form-control" %>
+    <%= f.text_field :position, class: "form-control", value: @user_data.position.presence || "" %>
   </div>
 
   <div class="form-group">
