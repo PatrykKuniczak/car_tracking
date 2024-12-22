@@ -22,6 +22,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+
+      <% if flash[:alert] %>
+        <div>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
   </body>
 </html>
